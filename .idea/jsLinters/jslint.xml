@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JSLintConfiguration" json="true">
+    <option browser="true" />
+    <option evil="true" />
+    <option indent="4" />
+    <option maxerr="50" />
+    <option node="true" />
+    <option predef="jasmine, describe, xdescribe, before, beforeEach, after, afterEach, it, xit, it, inject, expect, spyOn" />
+  </component>
+</project>

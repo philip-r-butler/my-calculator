@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="MathJS" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/lib/mathjs/dist/math.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/mathjs/dist/math.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
