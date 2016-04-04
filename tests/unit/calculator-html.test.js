@@ -1,6 +1,5 @@
-/**
- * Created by mtlsspb4 on 06/03/2016.
- */
+/*jslint nomen: true */
+/*global $, myCalculator, __html__*/
 describe('DOM markup', function () {
 
     'use strict';

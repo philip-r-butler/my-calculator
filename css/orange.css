@@ -44,7 +44,7 @@ calculator
   position: absolute;
   overflow: hidden;
   border-radius: 20px;
-  top: 50%;
+  top: 40%;
   left: 50%;
   z-index: 1;
   -webkit-transform: translate(-50%, -62%);
@@ -56,8 +56,8 @@ screen
 --------------------*/
 .screen {
   background: #fff;
-  padding: 15px 28px;
-  height: 69px;
+  padding: 1.5vw 3vw 1vw 3vw;
+  min-height: 7.2vw;
   text-align: right;
   font-size: 4vw;
   color: #4c455a;
@@ -129,7 +129,8 @@ Buttons
   padding: 11px 10px;
 }
 
-.buttons .operators button[data-val="x"] {
+/*
+.buttons .operators button[data-val="*"] {
   font-size: 13px;
 }
 
@@ -139,4 +140,4 @@ Buttons
 
 .buttons .operators button[data-val="="] {
   font-size: 16px;
-}
+}*/

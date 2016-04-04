@@ -4,5 +4,8 @@
 
 'use strict';
 
-var myCalculator = {},
-        myMath = math;
+/*global math */
+var myCalculator, myMath;
+myMath = math;
+
+

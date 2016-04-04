@@ -1,17 +1,14 @@
-/**
- * Created by mtlsspb4 on 02/03/2016.
- */
-(function ($, calc) {
+/*global jQuery, myCalculator */
+(function (jq, calc) {
 
     'use strict';
 
     calc.view = (function () {
         var ui = {
-            btnNumber: $('.number'),
-            btnOperator: $('.operator'),
-            btnEvaluate: $('.equals'),
-            btnCancel: $('.cancel'),
-            outScreen: $('.screen')
+            btnItem: jq('button.number, button.operator'),
+            btnEvaluate: jq('button.evaluate'),
+            btnRemove: jq('button.remove'),
+            outScreen: jq('div.screen')
         };
 
         function getUIElements() {
@@ -22,26 +19,9 @@
             ui.outScreen.html(val);
         }
 
-        function getDataValue(obj) {
-            return obj.attr('data-val');
-        }
-
-        (function init() {
-            ui.btnNumber.on('click', function () {
-                console.log('button clicked - ' + getDataValue($(this)));
-                calc.publisher.publish('addNumber', getDataValue($(this)));
-            });
-
-            ui.btnOperator.on('click', function () {
-                console.log('button clicked - ' + getDataValue($(this)));
-                calc.publisher.publish('addOperator', getDataValue($(this)));
-            });
-        }());
-
-
         return {
             getUIElements: getUIElements,
             updateScreen: updateScreen
         };
     }());
-}($, myCalculator));
+}(jQuery, myCalculator));

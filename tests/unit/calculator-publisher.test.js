@@ -1,6 +1,7 @@
 /**
  * Created by mtlsspb4 on 11/03/2016.
  */
+/*
 describe('calculator publisher tests : ', function () {
 
     'use strict';
@@ -77,4 +78,4 @@ describe('calculator publisher tests : ', function () {
         publisher.unsubscribeAll();
 
     });
-});
+ });*/

@@ -1,6 +1,4 @@
-/**
- * Created by mtlsspb4 on 04/03/2016.
- */
+/*global jQuery, myCalculator */
 describe('calculator model tests', function () {
 
     'use strict';
