@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>layout2</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      border: none;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      background-color: lightgrey;
+    }
+
+    .calc-toolbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: gray;
+      height: 40px;
+      width: 100%;
+      z-index: 3;
+    }
+
+    .calc-panel-calculators,
+    .calc-panel-log {
+      position: absolute;
+      top: 0px;
+      padding-top: 40px;
+      height: 100%;
+    }
+
+    .calc-panel-calculators {
+      left: 0;
+      width: 60%;
+      background-color: lemonchiffon;
+      z-index: 2;
+    }
+
+    .calc-panel-log {
+      right: 0;
+      width: 40%;
+      background-color: plum;
+      z-index: 1;
+    }
+
+    .calc-log-tabs {
+      background-color: burlywood;
+    }
+
+    .calc-log-content {
+      float: left;
+      background-color: aquamarine;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+<div class="calc-toolbar">
+  toolbar
+</div>
+<div class="calc-panel-calculators">
+  calculators
+</div>
+<div class="calc-panel-log">
+  <div class="calc-log-tabs">
+    tabs
+  </div>
+  <div class="calc-log-content">
+    content
+  </div>
+</div>
+</body>
+</html>

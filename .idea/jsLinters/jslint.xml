@@ -6,6 +6,6 @@
     <option indent="4" />
     <option maxerr="50" />
     <option node="true" />
-    <option predef="jasmine, describe, xdescribe, before, beforeEach, after, afterEach, it, xit, it, inject, expect, spyOn" />
+    <option predef="jasmine, describe, xdescribe, before, beforeEach, after, afterEach, it, xit, it, inject, expect, spyOn, setFixtures, spyOnEvent, toBeInDom, toHaveBeenTriggered, toHaveBeenTriggeredOn, toHaveBeenPrevented, toHaveBeenPreventedOn, toHaveBeenStopped, toHaveBeenStoppedOn" />
   </component>
 </project>

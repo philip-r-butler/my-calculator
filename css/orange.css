@@ -1,143 +1,485 @@
 /*--------------------
-Reset & body
+Reset html and body
 --------------------*/
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
+  border: none;
 }
 
-html,
-body {
-  min-height: 100%;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body {
-  background: -webkit-linear-gradient(270deg, #feead2, #fff8ee);
-  background: linear-gradient(180deg, #feead2, #fff8ee);
+  overflow: hidden;
   font-family: Open Sans, Arial, sans-serif;
-  font-size: 1em;
 }
 
-body:before {
-  content: '';
-  width: 800px;
-  height: 600px;
-  background: #f00;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+/*-----------------
+Table layout
+------------------*/
+.calc-layout-table {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.calc-layout-row {
+  display: table-row;
+}
+
+.calc-layout-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*-----------------
+Screen layout
+------------------*/
+.calc-layout-screen {
+  height: 100%;
+}
+
+.calc-layout-screen > div {
+  background: #fff;
+  vertical-align: middle;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+/*-----------------
+Parameters layout
+-----------------*/
+.calc-layout-parameters > div {
+  background: #ffffff;
+  vertical-align: middle;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+/*-----------------
+Input layout
+------------------*/
+.calc-layout-input > div {
+  width: 100%;
+}
+
+/*--------------------
+Button layout
+--------------------*/
+.calc-layout-1col {
+  width: 10%;
+}
+
+.calc-layout-2col {
+  width: 20%;
+}
+
+.calc-layout-3col {
+  width: 30%;
+}
+
+.calc-layout-4col {
+  width: 40%;
+}
+
+.calc-layout-5col {
+  width: 50%;
+}
+
+.calc-layout-6col {
+  width: 60%;
+}
+
+.calc-layout-7col {
+  width: 70%;
+}
+
+.calc-layout-8col {
+  width: 80%;
+}
+
+.calc-layout-9col {
+  width: 90%;
+}
+
+.calc-layout-10col {
+  width: 100%;
+}
+
+.calc-layout-1but button {
+  width: 100%;
+}
+
+.calc-layout-2but button {
+  width: 50%;
+}
+
+.calc-layout-3but button {
+  width: 33.33333%;
+}
+
+.calc-layout-4but button {
+  width: 25%;
+}
+
+.calc-layout-5but button {
+  width: 20%;
+}
+
+.calc-layout-6but button {
+  width: 16.66667%;
+}
+
+.calc-layout-7but button {
+  width: 14.28571%;
+}
+
+.calc-layout-8but button {
+  width: 12.5%;
+}
+
+.calc-layout-9but button {
+  width: 11.11111%;
+}
+
+.calc-layout-10but button {
+  width: 10%;
+}
+
+/*-----------------
+Responsive
+-----------------*/
+.calc-responsive-all,
+.calc-responsive-desktop,
+.calc-responsive-mobile {
   display: none;
 }
 
 /*--------------------
-calculator
+calculators
 --------------------*/
-#calculator {
-  width: 80%;
+#calc-calculators {
   background: -webkit-linear-gradient(315deg, #fcaf3b, #f25c2a);
   background: linear-gradient(135deg, #fcaf3b, #f25c2a);
-  box-shadow: 0 10px 28px #d8724a;
-  margin: 10% auto;
-  position: absolute;
-  overflow: hidden;
-  border-radius: 20px;
-  top: 40%;
-  left: 50%;
-  z-index: 1;
-  -webkit-transform: translate(-50%, -62%);
-  transform: translate(-50%, -62%);
 }
 
 /*--------------------
-screen
+toolbar
 --------------------*/
-.screen {
-  background: #fff;
-  padding: 1.5vw 3vw 1vw 3vw;
-  min-height: 7.2vw;
-  text-align: right;
-  font-size: 4vw;
-  color: #4c455a;
+.calc-toolbar {
+  background-color: #f0f0f0;
+  height: 38px;
+  width: 100%;
   position: relative;
-  overflow: hidden;
-  z-index: 1;
-  box-shadow: 0 2px 3px #d8724a;
-  -webkit-transition: color .6s ease-in-out;
-  transition: color .6s ease-in-out;
 }
 
-.screen::after {
-  content: '';
-  display: table;
+.calc-toolbar > ul,
+.calc-toolbar > ul.calc-toolbar-left {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.calc-toolbar > ul.calc-toolbar-right {
+  float: right;
+}
+
+.calc-toolbar > ul > li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.calc-toolbar > ul > li.calc-toolbar-dropdown > ul {
+  display: none;
+}
+
+.calc-toolbar > ul > li > a {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  float: left;
+  color: #666666;
+  font-size: 16px;
+  margin: 0;
+  padding: 0 12px;
+  line-height: 38px;
+  height: 38px;
+}
+
+.calc-toolbar a:hover,
+.calc-toolbar a:focus {
+  color: #000000;
+  background-color: #cccccc;
+}
+
+.calc-toolbar a.active {
+  color: #000000;
+  background-color: #c0c0c0;
+}
+
+/*--------------------
+Drop down menu
+--------------------*/
+.calc-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: auto;
+  right: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 2px 0;
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+}
+
+.calc-dropdown-menu.active {
+  display: block;
+}
+
+.calc-dropdown-menu .divider {
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
   clear: both;
 }
 
-/*--------------------
-Buttons
---------------------*/
-.buttons button {
-  float: right;
-  font-size: 3vw;
-  border: none;
-  background: transparent;
-  color: #fff;
-  padding: 15px 10px;
-  outline: none;
-  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
+.calc-dropdown-menu > li > a {
+  display: block;
+  margin: 0;
+  padding: 8px 10px;
+  clear: both;
+  color: #333333;
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  width: 100%;
 }
 
-.buttons button:hover {
+/*--------------------
+calculator input panel
+--------------------*/
+#calc-input-panel {
+  display: none;
+}
+
+#calc-input-panel[class*='visible'] {
+  display: table-cell;
+}
+
+/*--------------------
+calculator input instance
+--------------------*/
+.calc-input {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+.calc-input[class*='visible'] {
+  display: block;
+}
+
+.calc-input-default {
+  display: block;
+}
+
+/*--------------------
+Input screen
+--------------------*/
+.calc-input-screen {
+  padding: 1vmin;
+  outline: none;
+  text-align: right;
+  font-size: 9vmin;
+  color: #333333;
+}
+
+/*--------------------
+Input x, input y
+--------------------*/
+.calc-input-parameters {
+  border-top: 1px solid #e8e8e8;
+  width: 100%;
+  color: #999999;
+}
+
+.calc-input-parameter {
+  float: left;
+  font-size: 4vmin;
+  border-left: 1px solid #e8e8e8;
+  padding: 0.5vmin;
+}
+
+.calc-input-label {
+  text-align: right;
+}
+
+.calc-input-parameters:nth-child(0) {
+  border-left: none;
+}
+
+/*--------------------
+calculator log panel - history and memory tabs
+--------------------*/
+#calc-log-panel {
+  display: none;
+  background-color: #f5f5f5;
+  width: 100%;
+}
+
+#calc-log-panel[class*='visible'] {
+  display: table-cell;
+  width: 100%;
+}
+
+#calc-log-panel .calc-log-content {
+  border-left: 1px solid #dddddd;
+  background-color: #f0f0f0;
+}
+
+#calc-log-panel .expression {
+  display: block;
+  font-size: 4vmin;
+}
+
+#calc-log-panel .result {
+  display: block;
+  font-size: 5vmin;
+  font-weight: bold;
+}
+
+/*-------------------
+Log tabs
+--------------------*/
+.calc-tabs {
+  border-bottom: 1px solid #dddddd;
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style: none;
+  width: 100%;
+}
+
+.calc-tabs::after,
+.calc-tabs::before {
+  display: table;
+  content: ' ';
+  clear: both;
+}
+
+.calc-tabs li {
+  display: block;
+  float: left;
+  margin-bottom: -1px;
+  position: relative;
+}
+
+.calc-tabs li > a {
+  border: 1px solid transparent;
+  border-radius: 2px 2px 0 0;
+  font-size: 14px;
+  color: #666666;
+  display: block;
+  position: relative;
+  margin-right: 2px;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+.calc-tabs li.active > a {
+  background-color: #f0f0f0;
+  border: 1px solid #dddddd;
+  border-bottom-color: transparent;
+  color: #333333;
+}
+
+.calc-tab-content {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.calc-tab-content-pane {
+  display: none;
+  padding: 0 10px;
+}
+
+.calc-tab-content-pane.active {
+  display: block;
+}
+
+/*--------------------
+Calc memories, functions, numbers and operators
+--------------------*/
+.calc-memories,
+.calc-numbers,
+.calc-functions,
+.calc-operators {
+  float: left;
+}
+
+/*--------------------
+buttons
+--------------------*/
+.calc-layout-input .calc-memories {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.calc-layout-input .calc-memories button {
+  font-size: 5vmin;
+  padding: 3vmin 2vmin;
+  height: 12vmin;
+}
+
+.calc-layout-input .calc-functions button,
+.calc-layout-input .calc-operators button {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.calc-layout-input .calc-functions button {
+  font-size: 3.5vmin;
+  padding: 1vmin;
+}
+
+.calc-layout-input button {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  float: right;
+  font-size: 6vmin;
+  padding: 2.5vmin 2vmin;
+  height: 12vmin;
+  outline: none;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.calc-layout-input button sup {
+  font-size: 3.5vmin;
+}
+
+.calc-layout-input button:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.buttons button:active, .buttons button.active {
+.calc-layout-input button:active,
+.calc-layout-input button.active {
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
 }
-
-.buttons::after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-.buttons .numbers {
-  float: left;
-  width: 75%;
-  padding: 10px;
-}
-
-.buttons .numbers button {
-  width: 33.3333%;
-  padding: 18px 10px;
-}
-
-.buttons .operators {
-  float: right;
-  width: 25%;
-  padding: 16px 10px 10px;
-  background: rgba(0, 0, 0, 0.1);
-  min-height: 260px;
-}
-
-.buttons .operators button {
-  width: 100%;
-  padding: 11px 10px;
-}
-
-/*
-.buttons .operators button[data-val="*"] {
-  font-size: 13px;
-}
-
-.buttons .operators button[data-val="-"] {
-  font-size: 18px;
-}
-
-.buttons .operators button[data-val="="] {
-  font-size: 16px;
-}*/

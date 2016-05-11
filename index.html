@@ -3,42 +3,264 @@
 <head>
   <meta charset="UTF-8">
   <title>My Calculator</title>
-  <link rel="stylesheet" href="css/orange.css">
+  <!--<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>-->
+  <!--<link rel="stylesheet" href="lib/jquery-ui/themes/smoothness/jquery-ui.min.css"/>-->
+  <link rel="stylesheet" href="lib/components-font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="css/orange.css"/>
 </head>
-<body>
-<div id="calculator">
-  <div class="screen"></div>
-  <div class="buttons">
-    <div class="numbers">
-      <button class="number" data-val="9">9</button>
-      <button class="number" data-val="8">8</button>
-      <button class="number" data-val="7">7</button>
-      <button class="number" data-val="6">6</button>
-      <button class="number" data-val="5">5</button>
-      <button class="number" data-val="4">4</button>
-      <button class="number" data-val="3">3</button>
-      <button class="number" data-val="2">2</button>
-      <button class="number" data-val="1">1</button>
-      <button class="number" data-val=".">.</button>
-      <button class="number" data-val="0">0</button>
+<body id="calc-calculators">
+<div class="calc-layout-table">
+  <div class="calc-layout-row calc-toolbar">
+    <div class="calc-layout-cell">
+      <div class="calc-toolbar" role="navigation">
+        <ul class="calc-toolbar-right">
+          <li class="calc-responsive-all">
+            <a href="#calc-log-panel" class="calc-log-panel-toggle"><span class="fa fa-history"></span></a>
+          </li>
+          <li class="calc-dropdown calc-responsive-all">
+            <a href="#calc-dropdown-popout"><span class="fa fa-clone"></span></a>
+            <ul class="calc-dropdown-menu" id="calc-dropdown-popout">
+              <li>
+                <a href="#" data-val="568x320"><span class="fa fa-mobile fa-fw"></span> 568x320</a>
+              </li>
+              <li>
+                <a href="#" data-val="667x375"><span class="fa fa-tablet fa-fw"></span> 667x375</a>
+              </li>
+              <li>
+                <a href="#" data-val="800x600"><span class="fa fa-laptop fa-fw"></span> 800x600</a>
+              </li>
+            </ul>
+          </li>
+          <li class="calc-dropdown calc-responsive-desktop">
+            <a href="#calc-dropdown-type"><span class="fa fa-th"></span></a>
+            <ul class="calc-dropdown-menu" id="calc-dropdown-type"></ul>
+          </li>
+          <li class="calc-dropdown calc-responsive-desktop">
+            <a href="#calc-dropdown-theme"><span class="fa fa-desktop"></span></a>
+            <ul class="calc-dropdown-menu" id="calc-dropdown-theme">
+              <li>
+                <a href="#" data-val="calc-theme-orange">Orange</a>
+              </li>
+              <li>
+                <a href="#" data-val="calc-theme-carbonfibre">Carbon fibre</a>
+              </li>
+              <li>
+                <a href="#" data-val="calc-theme-ipod">iPod</a>
+              </li>
+            </ul>
+          </li>
+          <li class="calc-dropdown calc-responsive-desktop">
+            <a href="#calc-dropdown-settings"><span class="fa fa-cog"></span></a>
+            <ul class="calc-dropdown-menu" id="calc-dropdown-settings">
+              <li>
+                <a href="#">Action</a>
+              </li>
+              <li>
+                <a href="#">Another action</a>
+              </li>
+              <li>
+                <a href="#">Something else here</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">Separated link</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="#">One more separated link</a>
+              </li>
+            </ul>
+          </li>
+          <li class="calc-responsive-desktop">
+            <a href="#"><span class="fa fa-question"></span></a>
+          </li>
+          <li class="calc-responsive-mobile">
+            <a href="#"><span class="fa fa-bars"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="operators">
-      <button class="operator" data-val="/">/</button>
-      <button class="operator" data-val="*">x</button>
-      <button class="operator" data-val="-">-</button>
-      <button class="operator" data-val="+">+</button>
-      <button class="evaluate">=</button>
-      <button class="remove">C</button>
+  </div>
+  <div class="calc-layout-row">
+    <div class="calc-layout-cell">
+      <div class="calc-layout-table">
+        <div class="calc-layout-row">
+          <div class="calc-layout-cell" id="calc-input-panel">
+            <div class="calc-input calc-input-default" id="basic">
+              <div class="calc-layout-table">
+                <div class="calc-layout-row calc-layout-screen">
+                  <div class="calc-layout-cell">
+                    <div class="calc-input-screen"></div>
+                  </div>
+                </div>
+                <div class="calc-layout-row calc-layout-input">
+                  <div class="calc-layout-cell">
+
+                    <div class="calc-memories calc-layout-10col calc-layout-5but">
+                      <button class="msave">MS</button>
+                      <button class="mplus">M+</button>
+                      <button class="mminus">M-</button>
+                      <button class="mrecall">MR</button>
+                      <button class="mclear">MC</button>
+                    </div>
+                    <div class="calc-numbers calc-layout-8col calc-layout-3but">
+                      <button class="backspace">BS</button>
+                      <button class="clear">C</button>
+                      <button class="reset">CE</button>
+                      <button class="number" data-val="9">9</button>
+                      <button class="number" data-val="8">8</button>
+                      <button class="number" data-val="7">7</button>
+                      <button class="number" data-val="6">6</button>
+                      <button class="number" data-val="5">5</button>
+                      <button class="number" data-val="4">4</button>
+                      <button class="number" data-val="3">3</button>
+                      <button class="number" data-val="2">2</button>
+                      <button class="number" data-val="1">1</button>
+                      <button class="number" data-val=".">.</button>
+                      <button class="number" data-val="0">0</button>
+                      <button class="plusmn">&plusmn</button>
+                    </div>
+                    <div class="calc-operators calc-layout-2col calc-layout-1but">
+                      <button class="operator" data-val="/">/</button>
+                      <button class="operator" data-val="*">x</button>
+                      <button class="operator" data-val="-">-</button>
+                      <button class="operator" data-val="+">+</button>
+                      <button class="evaluate">=</button>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="calc-input" id="scientific">
+              <div class="calc-layout-table">
+                <div class="calc-layout-row calc-layout-screen">
+                  <div class="calc-layout-cell">
+                    <div class="calc-input-screen" contenteditable="true"></div>
+                  </div>
+                </div>
+                <div class="calc-layout-row calc-layout-parameters">
+                  <div class="calc-layout-cell">
+                    <div class="calc-input-parameters">
+                      <div class="calc-input-parameter calc-layout-5col">
+                        <span class="calc-input-label">x:</span>
+                        <span class="calc-input-x" contenteditable="true"></span>
+                      </div>
+                      <div class="calc-input-parameter calc-layout-5col">
+                        <span class="calc-input-label">y:</span>
+                        <span class="calc-input-y" contenteditable="true"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="calc-layout-row calc-layout-input">
+                  <div class="calc-layout-cell">
+                    <div class="calc-memories calc-layout-10col calc-layout-7but">
+                      <button class="msave">MS</button>
+                      <button class="mplus">M+</button>
+                      <button class="mminus">M-</button>
+                      <button class="mrecall">MR</button>
+                      <button class="mclear">MC</button>
+                      <button class="parameter" data-val="y"><em>y</em></button>
+                      <button class="parameter" data-val="x"><em>x</em></button>
+                    </div>
+                    <div class="calc-functions calc-layout-4col calc-layout-5but">
+                      <button class="trigonometry" data-val="tan(x)">tan(<em>x</em>)</button>
+                      <button class="trigonometry" data-val="cos(x)">cos(<em>x</em>)</button>
+                      <button class="trigonometry" data-val="sin(x)">sin(<em>x</em>)</button>
+                      <button class="function" data-val="x^y"><em>x</em><sup><em>y</em></sup></button>
+                      <button class="function" data-val="square(x)"><em>x</em><sup>2</sup></button>
+                      <button class="function" data-val="tanh(x)">tanh(<em>x</em>)</button>
+                      <button class="function" data-val="cosh(x)">cosh(<em>x</em>)</button>
+                      <button class="function" data-val="sinh(x)">sinh(<em>x</em>)</button>
+                      <button class="function" data-val="nthRoot(x,y)"><sup>y</sup>&Sqrt;<em>x</em></button>
+                      <button class="function" data-val="cube(x)"><em>x</em><sup>3</sup></button>
+                      <button class="mod">mod</button>
+                      <button class="operator" data-val="e+0">exp</button>
+                      <button class="function" data-val="log10(x)">log<sub>10</sub>(<em>x</em>)</button>
+                      <button class="function" data-val="10^x">10<sup><em>x</em></sup></button>
+                      <button class="function" data-val="sqrt(x)">&Sqrt;<em>x</em></button>
+                      <button class="deg">deg</button>
+                      <button class="dms">dms</button>
+                      <button class="function" data-val="ln(x)">ln(x)</button>
+                      <button class="function" data-val="e^x">e<sup><em>x</em></sup></button>
+                      <button class="function" data-val="1/x">1/<em>x</em></button>
+                      <button class="operator" data-val=")">)</button>
+                      <button class="operator" data-val="(">(</button>
+                      <button class="function" data-val="factorial(x)">x!</button>
+                      <button class="pi">&pi;</button>
+                      <button class="shift">shift</button>
+                    </div>
+                    <div class="calc-numbers calc-layout-4col calc-layout-3but">
+                      <button class="backspace">BS</button>
+                      <button class="clear">C</button>
+                      <button class="reset">CE</button>
+                      <button class="number" data-val="9">9</button>
+                      <button class="number" data-val="8">8</button>
+                      <button class="number" data-val="7">7</button>
+                      <button class="number" data-val="6">6</button>
+                      <button class="number" data-val="5">5</button>
+                      <button class="number" data-val="4">4</button>
+                      <button class="number" data-val="3">3</button>
+                      <button class="number" data-val="2">2</button>
+                      <button class="number" data-val="1">1</button>
+                      <button class="number" data-val=".">.</button>
+                      <button class="number" data-val="0">0</button>
+                      <button class="plusmn">&plusmn</button>
+                    </div>
+                    <div class="calc-operators calc-layout-2col calc-layout-1but">
+                      <button class="operator" data-val="/">/</button>
+                      <button class="operator" data-val="*">x</button>
+                      <button class="operator" data-val="-">-</button>
+                      <button class="operator" data-val="+">+</button>
+                      <button class="evaluate">=</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="calc-input" id="programmable">programmable</div>
+            <div class="calc-input" id="converter">converter</div>
+            <div class="calc-input" id="sequencer">sequencer</div>
+          </div>
+          <div class="calc-layout-cell" id="calc-log-panel">
+            <div class="calc-layout-table">
+              <div class="calc-layout-row" style="height: 40px;">
+                <div class="calc-layout-cell">
+                  <div class="calc-log-tabs">
+                    <ul class="calc-tabs">
+                      <li class="active">
+                        <a href="#calc-tab-history">History</a>
+                      </li>
+                      <li>
+                        <a href="#calc-tab-memory">Memory</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="calc-layout-row">
+                <div class="calc-layout-cell calc-log-content">
+                  <div class="calc-tab-content">
+                    <div class="calc-tab-content-pane active" id="calc-tab-history"></div>
+                    <div class="calc-tab-content-pane" id="calc-tab-memory"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="lib/jquery-tiny-pubsub/dist/ba-tiny-pubsub.min.js"></script>
 <script type="text/javascript" src="lib/mathjs/dist/math.js"></script>
-<script type="text/javascript" src="js/calculator-app.js"></script>
-<script type="text/javascript" src="js/calculator-validator.js"></script>
-<script type="text/javascript" src="js/calculator-model.js"></script>
-<script type="text/javascript" src="js/calculator-view.js"></script>
-<script type="text/javascript" src="js/calculator-controller.js"></script>
+<script type="text/javascript" src="js/calc-app.js"></script>
+<script type="text/javascript" src="js/calc-validator.js"></script>
+<script type="text/javascript" src="js/calc-model.js"></script>
+<script type="text/javascript" src="js/calc-view.js"></script>
+<script type="text/javascript" src="js/calc-controller.js"></script>
 </body>
 </html>
